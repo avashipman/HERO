@@ -1,31 +1,31 @@
 # HERO
-HERO (Hierarchy-aware Expression Region Organization): A hierarchy-aware analysis pipeline based in R for interpreting rodent whole-brain light sheet 3D datasets. HERO is designed to perform hierarchy-aware selection, refinement, ranking, and visualization of while-brain datasets generated from LifeCanvas' SmartAnalytics outputs. 
+HERO (Hierarchy-aware Expression Region Organization): A hierarchy-aware analysis pipeline based in R for interpreting rodent whole-brain 3D datasets. HERO is designed to perform hierarchy-aware selection, refinement, ranking, and visualization. 
 
-**HERO** is designed to help users identify, organize, rank, and visualize brain regions with high expression while preserving the anatomical hierarchy of the Allen Brain Atlas-style ontology used in **SmartAnalytics** outputs. Whole-brain light-sheet datasets contain hundreds to thousands of atlas-registered regions, organized as parent-child anatomical structures across multiple depths. This hierarchy is powerful, but it also creates challenges: overrepresentation of subregions, laterality consideration, and biasm. HERO addresses these challenges by using hiararchy-aware filtering, density averaging, overrepresentation correction, and group comparison visualization.
+**HERO** is designed to help users identify, organize, rank, and visualize brain regions with high expression while preserving the anatomical hierarchy of brain atlases. HERO was created with the Allen Brain Atlas-style ontology used in LifeCanvas' **SmartAnalytics** outputs but can be applied to other atlas-registered cell detection datasets. Whole-brain cell detection datasets contain hundreds to thousands of atlas-registered regions, organized as parent-child anatomical structures across multiple depths. This hierarchy is powerful, but it also creates challenges: overrepresentation of subregions, laterality consideration, and biasm. HERO addresses these challenges by using hiararchy-aware filtering, density averaging, overrepresentation correction, and group comparison visualization to bridge the gab to facilitate biological meaningful interpretations and results from whole-brain cell detection datasets .
 
 ---
 
 HERO performs five major steps:
-1. **Prepare**
-    - Import SmartAnalytics CSV files
+1. **Depth Filtering**
+    - Import whole-brain cell detection CSV files
     - Clean region names and acronyms
     - Handle laterality: left, right, or combined
     - Filter regions by atlas depth
     - Remove non-target structures (e.g. 'tracts') if necessary
-2. **Average**
+2. **Group-Level Averaging**
     - Combine sample-level filtered outputs
     - Calculate mean density per region across samples
     - Preserve individual subject-level density values
-3. **Select**
+3. **Hierarchical-Guided Region Selection**
     - Identify highly expressing parent regions
     - Hierarchy mapping using parent-child IDs
     - Expand selected regions to a target depth (e.g. Depth 6)
-4. **Clean**
+4. **Overrepresentation Correction**
     - Detect overrepresentation from multiple children of a single parent region
     - Collapse overrepresented children back to their parent structure
     - Refill the top-region list with the next best candidate regions
     - Preserve the final selected region list and all candidate regions
-5. **Visualize**
+5. **Visualization**
     - Generate chord diagrams comparing expression patterns between groups
     - Display shared and group-specific regions
     - Handle laterality: left, right, or combined
