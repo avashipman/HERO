@@ -114,18 +114,19 @@ git clone https://github.com/your-username/HERO.git
       ```text
       source("functions_HERO.R")
       
-      input_folder <- "path/to/SmartAnalytics_CSVs"
+      original_csv_folser <- "path/to/rawCSVfolder"
+      analysis_folder <- "path/to/analysisfolder"
       filtered_folder <- "path/to/filtered_outputs"
       output_folder <- "path/to/final_outputs"
       ```
-    - Set your core analysis parameters:
+    - Set your core analysis parameters: parameters for our Example Data
       ```text
       depth_level <- 4
       target_depth <- 6
       laterality <- "combined"
-      top_n_parents <- 10
+      top_n_parents <- 30
       top_n_final <- 30
-      collapse_threshold <- 3
+      collapse_threshold <- 2
       ```
 3. Run through the commands of analysis_HERO.R
    Will give you three main files:
@@ -145,9 +146,11 @@ git clone https://github.com/your-username/HERO.git
     | -------------------- | --------------------------------------------------------------------------- |
     | `Densities`          | Subject-level density values for the final selected regions                 |
     | `Averages`           | Final cleaned top-region list with mean density, acronym, and depth         |
-    | `RankedRegions`      | Region-level mean density, median density, and subject-specific dense ranks |
     | `AveragesAllRegions` | Full candidate pool considered during selection and refill                  |
+    | `RankedRegions`      | Region-level mean density, median density, and subject-specific dense ranks |
     | `CollapsedGroups`    | Regions collapsed due to parent overrepresentation                          |
+    | `SelectionReport`    | Reports on selection process and verifies if overlapping occured            |
+    | `StartRegions`       | Region-level mean density, median density, and subject-specific dense ranks |
  
 4. Optional functions in analysis_HERO.R
     - Focused Analysis: start from one or more user-defined parent regions
