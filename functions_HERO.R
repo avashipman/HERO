@@ -1703,7 +1703,7 @@ make_density_chord_parentgroups <- function(group_files,
                                             # Default behavior: select the top N Group-Region pairs WITHIN EACH GROUP.
                                             # This prevents one group from inheriting extra links from regions
                                             # selected by another group.
-                                            top_regions_per_group = 15,
+                                            top_regions_per_group = 30,
                                             # Legacy option: if top_regions_per_group = NULL, select top N
                                             # regions overall by summed density across groups.
                                             top_regions = NULL,
